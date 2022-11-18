@@ -1,13 +1,17 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 def indexPageView(request) :
-    sOutput = '<html><head><title>Home Page</title></head><body><p>Welcome everyone to our home page!</p></body></html>'
-    return HttpResponse(sOutput) 
+    return render(request,'musicPages/index.html')
 
-def aboutPageView(request) :
-    sOutput = '<html><head><title>About</title></head><body><p>Rate your favorite music and share with your friends</body></html>'
-    return HttpResponse(sOutput)
+def searchPageView(request) :
+    return render(request,'musicPages/search.html')
+    
+def newReviewPageView(request):
+    return render(request,'musicPages/newReview.html')
 
-def contactPageView(request, contact_person, email_address):
-    sOutput = '<html><head><title>Contact</title></head><body><p>' + contact_person + ' we will contact you at ' + email_address + '</p></body></html>'
-    return HttpResponse(sOutput)
+def trendingPageView(request):
+    return render(request,'musicPages/trending.html')
+
+def profilePageView(request):
+    return render(request,'musicPages/profile.html')
